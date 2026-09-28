@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>AUTO INTEL — Industrial Intelligence Platform</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark;--bg:#070b12;--p:#0d1522;--b:#1c2a40;--t:#d7e2f2;--m:#7b8ba3;--g:#22c55e;--w:#f59e0b;--r:#ef4444;--o:#f97316;--a:#a78bfa;--c:#22d3ee}
+*{box-sizing:border-box}html,body{height:100%;margin:0}body{background:var(--bg);color:var(--t);font:12px/1.4 ui-monospace,"SF Mono",Menlo,Consolas,monospace;display:grid;grid-template-columns:176px 1fr;grid-template-rows:auto 1fr;overflow:hidden}
+header{grid-column:2;display:flex;gap:18px;align-items:center;padding:8px 14px;background:var(--p);border-bottom:1px solid var(--b);flex-wrap:wrap}
+.logo{font:700 15px system-ui,sans-serif;letter-spacing:.14em;color:var(--c)}.logo small{display:block;font-size:8px;color:var(--m);letter-spacing:.1em}
+.k{display:flex;flex-direction:column}.k span{color:var(--m);font-size:9px;text-transform:uppercase;letter-spacing:.06em}.k b{font-size:15px}
+.live{color:var(--g)}.live:before{content:"● ";animation:bl 1.4s infinite}@keyframes bl{50%{opacity:.3}}
+main{grid-area:2/2;display:grid;grid-template-columns:1fr 340px;grid-template-rows:auto 1fr;gap:8px;padding:8px;min-height:0}main>*{grid-column:1;min-width:0}#pg{grid-area:2/2;margin:8px;display:none}nav{grid-row:1/3;background:var(--p);border-right:1px solid var(--b);overflow:auto;padding:8px 6px}nav a{display:block;padding:6px 8px;border-radius:5px;color:var(--m);cursor:pointer;font:12px system-ui}nav a:hover{color:var(--t)}nav a.on{background:#123055;color:var(--c)}#kp{display:flex;gap:8px;padding:8px}.kc{flex:1;border:1px solid var(--b);border-radius:6px;padding:6px 10px;background:#0a1220;display:flex;gap:8px;align-items:center}.kc b{font:700 18px system-ui}.kc small{display:block;color:var(--m);font-size:9px}#fl{display:flex;gap:4px;align-items:center;padding:8px}.st{flex:1;text-align:center;cursor:pointer;font-size:10px}.st i{display:block;width:12px;height:12px;border-radius:50%;margin:0 auto 3px}
+.pn{background:var(--p);border:1px solid var(--b);border-radius:8px;padding:10px;overflow:auto;min-height:0}
+.pn h3{margin:0 0 7px;font:600 10px system-ui,sans-serif;letter-spacing:.1em;color:var(--m);text-transform:uppercase}
+#v{position:relative;padding:0;overflow:hidden}#v canvas{display:block;width:100%;height:100%}
+.lb{position:absolute;transform:translate(-50%,-100%);background:#0a1220e6;border:1px solid var(--b);border-radius:4px;padding:2px 6px;font-size:9px;pointer-events:none;white-space:nowrap;text-align:center}
+.tb{position:absolute;top:8px;left:8px;display:flex;gap:6px}
+button{background:#122036;color:var(--t);border:1px solid var(--b);border-radius:5px;padding:5px 8px;font:inherit;cursor:pointer}button:hover{border-color:var(--c)}button.on{border-color:var(--c);color:var(--c)}
+button.f{border-color:#5b2b2b}button.f:hover{border-color:var(--r)}
+#main>*{}#side{grid-column:2!important;grid-row:1/3}#fl,#bot{display:none!important}#simp{background:#0d1522ee}.mh{display:grid;grid-template-columns:1fr 70px 38px;gap:6px;align-items:center;padding:4px 2px;cursor:pointer;border-bottom:1px solid #14203a}.mh:hover{background:#122036}.kc{cursor:pointer}.kc:hover{border-color:var(--c)}details summary{padding:2px 0}.row{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #14203300}
+.bar{height:5px;background:#16233a;border-radius:3px;overflow:hidden;margin:3px 0 6px}.bar i{display:block;height:100%}
+.box{border-left:3px solid var(--c);background:#0a1220;padding:6px 8px;margin:6px 0;border-radius:0 5px 5px 0}
+#bot{display:grid;grid-template-columns:1fr 1.5fr 1fr 1fr 1fr;gap:8px}#bot .pn{overflow:auto}
+table{width:100%;border-collapse:collapse}td{padding:2px 4px;border-bottom:1px solid #14203a}
+.tag{padding:0 5px;border-radius:3px;font-size:9px}
+@media(max-width:1100px){body{overflow:auto}body{grid-template-columns:1fr}nav{display:none}header{grid-column:1}main,#pg{grid-area:auto}main{grid-template-columns:1fr;grid-template-rows:auto 420px auto auto}#side{grid-column:1!important;grid-row:auto}#bot{grid-template-columns:1fr 1fr}}
+</style></head><body><nav id="nv"></nav>
+<header><div class="logo">AUTO INTEL<small>INDUSTRIAL INTELLIGENCE PLATFORM</small></div>
+<div class="k"><span>Plant</span><b>Plant 01 — Main Facility</b></div><div class="k"><span>System</span><b class="live">LIVE</b></div>
+<div class="k"><span>Production</span><b id="hs">RUNNING</b></div><div class="k"><span>Efficiency</span><b id="he">--</b></div>
+<div class="k"><span>Output</span><b id="ho">--</b></div><div class="k"><span>Machines</span><b id="hm"></b></div>
+<div class="k"><span>Avg Health</span><b id="hh">--</b></div><div class="k"><span>At Risk</span><b id="hr">--</b></div><div class="k"><span>Active Alerts</span><b id="ha">0</b></div><div class="k"><span>Availability</span><b id="hv">--</b></div></header>
+<main>
+<div class="pn" id="kp"></div><div class="pn" id="v"><div class="tb"><button onclick="cam('top')">Top view</button><button onclick="cam('reset')">Reset camera</button><button onclick="cam('focus')">Focus selected</button><button onclick="tg()">Simulation</button></div></div>
+<div class="pn" id="fl"></div><div class="pn" id="side"></div>
+<div id="bot">
+<div class="pn" id="simp"><h3>Simulation control — <span id="tgt"></span></h3><div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px" id="sp"></div>
+<div style="display:flex;flex-direction:column;gap:4px"><button class="f" onclick="fault('bearing')">Simulate Bearing Failure</button><button class="f" onclick="fault('heat')">Simulate Motor Overheat</button><button class="f" onclick="fault('belt')">Simulate Belt Misalignment</button><button class="f" onclick="fault('joint')">Simulate Robot Joint Failure</button><button class="f" onclick="fault('sensor')">Simulate Sensor Failure</button><button onclick="recover()" style="border-color:var(--g)">Recover Machine</button></div></div>
+<div class="pn"><h3>Live sensor data — <span id="sn"></span></h3><div id="sg" style="display:grid;grid-template-columns:1fr 1fr;gap:6px"></div></div><div class="pn"><h3>Alert center</h3><div id="al"></div></div>
+<div class="pn"><h3>Predictive maintenance</h3><div id="mt"></div></div>
+<div class="pn"><h3>Spare parts & inventory</h3><div id="sw"></div></div>
+</div></main><section class="pn" id="pg"></section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+// ===== SIMULATION LAYER: virtual telemetry with gradual degradation =====
+const COL={h:'#22c55e',w:'#f59e0b',c:'#ef4444',m:'#f97316'};
+const BASE={t:45,v:1.2,c:2.5,r:1450,l:60};
+const FAULTS={bearing:{t:27,v:6,c:3.2,r:-330,n:'Bearing failure'},heat:{t:40,v:1,c:2,r:-100,n:'Motor overheat'},belt:{t:8,v:3,c:1.5,r:-200,n:'Belt misalignment'},joint:{t:12,v:4,c:2,r:-150,n:'Joint failure'},sensor:{t:0,v:0,c:0,r:0,n:'Sensor failure'}};
+const defs=[['Raw Material Storage','storage',-14],['Conveyor 01','conveyor',-10],['Robot Arm 01','robot',-6],['Processing Machine','processing',-2],['Conveyor 02','conveyor',2],['Robot Arm 02','robot',6],['Quality Inspection','inspection',10],['Packaging Unit','packaging',14],['Vacuum System 01','utility',-6,-7],['Cooling Unit 01','utility',4,-7],['Utilities Compressor','utility',-14,-7],['Power & Control Room','utility',14,-7],['Conveyor 03','conveyor',8,6],['Finished Goods','storage',14,6]];
+const M=defs.map((d,i)=>({i,name:d[0],type:d[1],x:d[2],z:d[3]||0,sev:0,tgt:0,fault:null,hrs:2000+i*713,
+ tel:{...BASE,p:6,pw:8+i},hist:[],hmax:100,status:'h',pred:{},maint:false,prevS:'h'}));
+M[2].sev=M[2].tgt=.28;M[2].fault='joint';M[6].sev=M[6].tgt=.3;M[6].fault='joint'; // Robot Arm 01 starts mildly degraded (warning)
+let detail=false,speed=1,sel=4,alerts=[],tasks={},uid=1;
+// ===== AI LAYER: deterministic models over telemetry (swap for FastAPI/XGBoost) =====
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),sig=x=>1/(1+Math.exp(-x));
+const AI={
+ features(t){return{dv:(t.v-BASE.v)/BASE.v,dt:(t.t-BASE.t)/BASE.t,dc:(t.c-BASE.c)/BASE.c,dr:(BASE.r-t.r)/BASE.r};},
+ combined(f){const n={v:clamp(f.dv/3,0,1),t:clamp(f.dt/.5,0,1),c:clamp(f.dc/.6,0,1),r:clamp(f.dr/.25,0,1)};n.s=.4*n.v+.25*n.t+.2*n.c+.15*n.r;return n;},
+ detectAnomaly(t){const n=AI.combined(AI.features(t));return{score:sig(9*(n.s-.3)),n};},
+ calculateHealth(n){return Math.round(clamp(100-62*n.s-2,20,99));},
+ predictFailure(n,type){const p=sig(9*(n.s-.5));let f='Nominal';if(n.s>.15){f=n.t>n.v*1.3?'Motor overheating':(type==='robot'&&n.v>=n.r?'Robotic joint degradation':(n.v<.6&&n.r>n.t?'Belt misalignment':'Bearing degradation'));}return{p,f};},
+ predictRUL(n){return n.s<.12?null:48*Math.pow(1-clamp(n.s,0,.97),1.6);},
+ recommend(f){return({'Bearing degradation':'Inspect motor bearing and belt alignment.','Motor overheating':'Check cooling airflow; reduce load.','Belt misalignment':'Re-track belt and inspect tension.','Robotic joint degradation':'Lubricate/inspect joint actuator.'})[f]||'Continue monitoring.';},
+ parts(f){return({'Bearing degradation':'Motor Bearing','Motor overheating':'Cooling Fan','Belt misalignment':'Conveyor Belt','Robotic joint degradation':'Joint Actuator'})[f];}
+};
+const STOCK={'Motor Bearing':[3,10],'Conveyor Belt':[5,8],'Temperature Sensor':[12,10],'Cooling Fan':[6,4],'Joint Actuator':[2,2]};
+function step(dt){
+ M.forEach(m=>{
+  const r=(m.tgt>m.sev?.012:.03)*speed*dt;m.sev+=clamp(m.tgt-m.sev,-r,r);
+  const F=FAULTS[m.fault]||{t:0,v:0,c:0,r:0},T=m.tel,nz=()=>(Math.random()-.5),s=m.sev;
+  const tg={t:BASE.t+F.t*s+nz()*1.2,v:BASE.v+F.v*s+nz()*.15,c:BASE.c+F.c*s+nz()*.1,r:BASE.r+F.r*s+nz()*8,l:60+s*27+nz()*2};
+  if(m.fault==='sensor'&&s>.3)tg.v+=Math.random()<.3?(Math.random()*5):0;
+  for(const k in tg)T[k]+=(tg[k]-T[k])*.35;
+  T.pw=(8+m.i)*(1+T.c/12);m.hrs+=dt*speed/3600*20;
+  const a=AI.detectAnomaly(T),h=AI.calculateHealth(a.n),fp=AI.predictFailure(a.n,m.type);
+  m.pred={anom:a.score,n:a.n,health:h,fp:fp.p,ftype:fp.f,rul:AI.predictRUL(a.n),rec:AI.recommend(fp.f)};
+  m.hmax=Math.max(m.hmax*.9995,h);
+  const st=m.maint?'m':h>80?'h':h>60?'w':'c';m.status=st;
+  m.hist.push([T.v,h,T.t,T.c,T.r]);if(m.hist.length>70)m.hist.shift();
+  if(st!==m.prevS){onTransition(m,m.prevS,st);m.prevS=st;}
+ });
+}
+function push(kind,msg){try{if(location.protocol.startsWith('http'))fetch('/api/notify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,msg})}).catch(()=>{})}catch(e){}}
+function notify(kind,msg){push(kind,msg);return `Telegram (mock) → ${kind}: ${msg}`;}
+function onTransition(m,a,b){
+ const t=new Date().toLocaleTimeString(),P=m.pred;
+ if(b==='w'||b==='c'){alerts.unshift({id:uid++,m:m.name,i:m.i,sev:b,t,txt:`${b==='c'?'CRITICAL':'WARNING'} — ${P.ftype} (${Math.round(P.fp*100)}% risk)`,ack:false,note:b==='c'?notify('Critical',m.name):''});}
+ if(b==='c'){tasks[m.i]={m:m.name,issue:P.ftype,conf:Math.round(P.fp*100),act:P.rec,due:'Today'};}
+ if(b==='h'&&(a==='w'||a==='c')){alerts.unshift({id:uid++,m:m.name,i:m.i,sev:'h',t,txt:'RECOVERED — telemetry back to normal',ack:false,note:notify('Recovery',m.name)});delete tasks[m.i];}
+ alerts=alerts.slice(0,30);
+}
+function fault(k){const m=M[sel];m.fault=k;m.tgt=1;m.maint=false;}
+function recover(){const m=M[sel];m.tgt=0;}
+// ===== UI =====
+const $=id=>document.getElementById(id),pc=x=>Math.round(x*100)+'%';
+$('sp').innerHTML=[1,2,5,10].map(s=>`<button class="${s===1?'on':''}" data-s="${s}" onclick="setSpeed(${s})">${s}x</button>`).join('');
+function setSpeed(s){speed=s;document.querySelectorAll('#sp button').forEach(b=>b.classList.toggle('on',+b.dataset.s===s));}
+function tag(s){return `<span class="tag" style="background:${COL[s]}22;color:${COL[s]}">${({h:'HEALTHY',w:'WARNING',c:'CRITICAL',m:'MAINTENANCE'})[s]}</span>`;}
+function sideHTML(){
+ const m=M[sel],P=m.pred,T=m.tel,n=P.n,f=AI.features(T);
+ const rul=P.rul==null?'—':`${Math.floor(P.rul)}h ${Math.floor((P.rul%1)*60)}m`;
+ const why=P.rul==null?'Sensor pattern within normal envelope.':`Health fell from ${Math.round(m.hmax)}% to ${P.health}%. Contributors: vibration ${f.dv>=0?'+':''}${Math.round(f.dv*100)}%, temperature ${Math.round(f.dt*100)>=0?'+':''}${Math.round(f.dt*100)}%, current ${Math.round(f.dc*100)>=0?'+':''}${Math.round(f.dc*100)}%, RPM −${Math.max(0,Math.round(f.dr*100))}%. Combined pattern indicates ${P.ftype.toLowerCase()}.`;
+ const row=(a,b)=>`<div class="row"><span style="color:var(--m)">${a}</span><b>${b}</b></div>`;
+ const ins=M.filter(x=>x.status==='c'||x.status==='w').map(x=>`<div class="box" style="border-color:${COL[x.status]}" onclick="pick(${x.i})"><b style="color:${COL[x.status]}">${x.status==='c'?'CRITICAL':'WARNING'} · ${x.name}</b><br>${x.pred.ftype} · health ${x.pred.health}% · risk ${pc(x.pred.fp)}</div>`).join('')||'<div class="box">All machines nominal.</div>';
+ const st=STOCK[AI.parts(P.ftype)],part=AI.parts(P.ftype);
+ return `<button onclick="detail=false;refresh()">← All machines</button><h3 style="margin-top:8px">Selected machine</h3><div style="font:600 16px system-ui">${m.name.toUpperCase()} ${tag(m.status)}</div>
+ <div class="bar"><i style="width:${P.health}%;background:${COL[m.status==='m'?'m':m.status]}"></i></div>${row('Machine health',P.health+'%')}
+ ${row('Temperature',T.t.toFixed(1)+' °C')}${row('Vibration',T.v.toFixed(2)+' mm/s')}${row('Motor current',T.c.toFixed(2)+' A')}${row('RPM',Math.round(T.r))}${row('Load',Math.round(T.l)+'%')}${row('Power',T.pw.toFixed(1)+' kW')}${row('Operating hours',Math.round(m.hrs).toLocaleString())}
+ <h3 style="margin-top:10px">AI engine <span style="color:var(--a)">● model output</span></h3>
+ ${row('Anomaly score',P.anom.toFixed(2)+(P.anom>.6?' · ANOMALY':''))}${row('Failure probability',pc(P.fp))}${row('Predicted failure',P.ftype)}${row('AI RUL prediction',rul)}
+ <details class="box" style="border-color:var(--a)"><summary style="cursor:pointer"><b>Why is this machine unhealthy?</b></summary>${why}</details>
+ <div class="box" style="border-color:var(--o)"><b>Recommended action</b><br>${P.rec}${P.rul!=null&&part?`<br><span style="color:var(--m)">Required part: ${part} · stock ${st[0]}/${st[1]}</span>`:''}</div>
+ <canvas id="ch" width="310" height="80" style="width:100%;background:#0a1220;border-radius:5px"></canvas><div style="color:var(--m);font-size:9px">Vibration (cyan) vs health (green) · live</div>
+ <details><summary style="cursor:pointer;color:var(--m)">Other AI insights</summary>${ins}</details>`;}
+function draw(){const c=$('ch');if(!c)return;const g=c.getContext('2d'),h=M[sel].hist;g.clearRect(0,0,310,80);
+ [[0,'#22d3ee',v=>80-clamp(v,0,9)/9*76],[1,'#22c55e',v=>80-v/100*76]].forEach(([k,col,fy])=>{g.beginPath();g.strokeStyle=col;g.lineWidth=1.5;h.forEach((p,i)=>{const x=i/69*310;i?g.lineTo(x,fy(p[k])):g.moveTo(x,fy(p[k]));});g.stroke();});}
+function pick(i){sel=i;detail=true;refresh();cam('focus');}
+function refresh0(){
+ const avg=M.reduce((a,m)=>a+m.pred.health,0)/M.length,mn=Math.min(...M.map(m=>m.pred.health)),f=clamp(mn/80,.35,1);
+ window.FLOW=f;const out=Math.round(1240*f),risk=M.filter(m=>m.pred.fp>.4).length,act=alerts.filter(a=>!a.ack&&a.sev!=='h').length;
+ $('he').textContent=Math.round(78*f+ (1-f)*0)+'%';$('ho').textContent=out.toLocaleString()+' u/hr';$('hh').textContent=Math.round(avg)+'%';$('hr').textContent=risk;$('ha').textContent=act;
+ $('hs').textContent=f<.6?'DELAYED':'RUNNING';$('hs').style.color=f<.6?COL.c:'var(--g)';$('hv').textContent=(100-M.filter(m=>m.status==='c').length*4).toFixed(0)+'%';
+ $('tgt').textContent=M[sel].name;$('side').innerHTML=detail?sideHTML():listHTML();draw();
+ $('al').innerHTML=alerts.slice(0,6).map(a=>`<div class="box" style="border-color:${COL[a.sev]}"><b>${a.m}</b> <span style="color:var(--m)">${a.t}</span><br>${a.txt}${a.note?`<br><span style="color:var(--a)">${a.note}</span>`:''}<br><button onclick="ack(${a.id})">${a.ack?'Acknowledged':'Acknowledge'}</button> <button onclick="pick(${a.i})">View machine</button></div>`).join('')||'<span style="color:var(--m)">No alerts.</span>';
+ const T=Object.values(tasks);$('mt').innerHTML=T.length?`<table>${T.map(t=>`<tr><td><b>${t.m}</b><br>${t.issue}</td><td>${t.conf}%<br><span class="tag" style="background:#ef444422;color:var(--r)">HIGH</span></td><td>${t.act}<br><span style="color:var(--m)">Due: ${t.due} · Pending</span></td></tr>`).join('')}</table>`:'<span style="color:var(--m)">No AI-generated tasks. Inject a fault to start the demo.</span>';
+ const need=new Set(M.map(m=>m.pred.rul!=null?AI.parts(m.pred.ftype):null));
+ $('sw').innerHTML=`<table>${Object.entries(STOCK).map(([k,[s,mn]])=>{const st=s<mn/2?['CRITICAL','c']:s<mn?['LOW','w']:['OK','h'];return `<tr><td>${k}${need.has(k)?' <span style="color:var(--a)">◆ AI-required</span>':''}</td><td>${s}/${mn}</td><td>${tag(st[1]).replace(/>[A-Z]+</,'>'+st[0]+'<')}</td></tr>`}).join('')}</table>`;
+}
+function ack(id){const a=alerts.find(x=>x.id===id);if(a)a.ack=true;refresh();}
+// ===== 3D DIGITAL TWIN =====
+const V=$('v'),W=()=>V.clientWidth,H=()=>V.clientHeight;
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x070b12);scene.fog=new THREE.Fog(0x070b12,40,90);
+const camr=new THREE.PerspectiveCamera(45,1,.1,200),ren=new THREE.WebGLRenderer({antialias:true});ren.setPixelRatio(Math.min(devicePixelRatio,2));V.appendChild(ren.domElement);
+const ctl=new THREE.OrbitControls(camr,ren.domElement);ctl.maxPolarAngle=1.5;ctl.enableDamping=true;
+scene.add(new THREE.AmbientLight(0x8899bb,.7));const dl=new THREE.DirectionalLight(0xffffff,.9);dl.position.set(8,18,10);scene.add(dl);
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(50,22),new THREE.MeshStandardMaterial({color:0x0d1420,roughness:.9}));floor.rotation.x=-Math.PI/2;scene.add(floor);
+scene.add(new THREE.GridHelper(50,50,0x1c2a40,0x111b2c));
+const stripe=new THREE.Mesh(new THREE.PlaneGeometry(30,.25),new THREE.MeshBasicMaterial({color:0xd9a800}));stripe.rotation.x=-Math.PI/2;stripe.position.set(0,.02,2.6);scene.add(stripe);
+const mat=(c,e)=>new THREE.MeshStandardMaterial({color:c,metalness:.6,roughness:.4,emissive:e||0,emissiveIntensity:.5});
+const bx=(w,h,d,c)=>new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat(c));
+const anim={};const targets=[];const MT={st:mat(0x4a5670),dk:mat(0x1c2436),yl:mat(0xd9a800),bl:mat(0x2f6f8f),rb:new THREE.MeshStandardMaterial({color:0x0c0e12,roughness:.9}),ch:new THREE.MeshStandardMaterial({color:0xaab4c6,metalness:.9,roughness:.25}),gl:new THREE.MeshStandardMaterial({color:0x22d3ee,transparent:true,opacity:.3,emissive:0x0a5566}),cb:mat(0x8a6a3a),gr:new THREE.MeshStandardMaterial({color:0x22c55e,emissive:0x22c55e}),rd:new THREE.MeshStandardMaterial({color:0xff2200,emissive:0xff2200,transparent:true,opacity:.5})};
+const P=(g,o,x,y,z,rx,ry,rz)=>{o.position.set(x,y,z);o.rotation.set(rx||0,ry||0,rz||0);g.add(o);return o;};
+const CY=(r,h,m,n)=>new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,n||16),m),BX=(w,h,d,m)=>new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m),SPH=(r,m)=>new THREE.Mesh(new THREE.SphereGeometry(r,14,10),m),HP=Math.PI/2;
+function build(m,g){const A={};anim[m.i]=A;const t=m.type,n=m.name;
+ if(t==='conveyor'){
+  [-1,1].forEach(z=>{P(g,BX(3.9,.16,.1,MT.st),0,.86,z*.62);P(g,BX(3.7,.1,.05,MT.yl),0,1.12,z*.56);[-1.7,0,1.7].forEach(x=>P(g,BX(.1,.8,.1,MT.st),x,.4,z*.6));});
+  P(g,BX(3.6,.05,1.05,MT.rb),0,.99,0);A.ro=[];
+  for(let k=0;k<9;k++){const r=new THREE.Group(),b=k%8===0;P(r,CY(b?.17:.09,1.1,MT.ch,10),0,0,0,HP);if(b)P(r,BX(.04,.4,.3,MT.yl),0,0,0);r.position.set(-1.7+k*.425,.88,0);g.add(r);A.ro.push(r);}
+  P(g,CY(.26,.7,MT.bl),2.05,.55,.75,HP);P(g,BX(.45,.45,.45,MT.st),1.75,.55,.75);P(g,BX(.2,.15,.2,MT.dk),2.05,.85,.75);
+ }else if(t==='robot'){
+  P(g,CY(.95,.12,MT.dk),0,.06,0);P(g,CY(.6,.5,MT.st),0,.4,0);const j=new THREE.Group();j.position.y=.65;g.add(j);A.j=j;
+  P(j,CY(.5,.3,MT.yl),0,.1,0);P(j,BX(.7,.5,.6,MT.yl),0,.4,0);const j1=new THREE.Group();j1.position.y=.5;j.add(j1);A.j1=j1;
+  P(j1,CY(.26,.8,MT.ch),0,0,0,HP);P(j1,BX(.3,1.5,.34,MT.yl),0,.8,0);const j2=new THREE.Group();j2.position.y=1.6;j1.add(j2);A.j2=j2;
+  P(j2,CY(.22,.6,MT.ch),0,0,0,HP);P(j2,BX(1.3,.24,.28,MT.yl),.65,0,0);P(j2,CY(.14,.3,MT.st),1.35,0,0);
+  [-1,1].forEach(z=>{P(j2,BX(.06,.35,.06,MT.ch),1.35,-.3,z*.09);});P(j2,CY(.05,1.4,MT.rb,6),.3,.2,.2,0,0,HP);
+ }else if(t==='processing'){
+  P(g,BX(3.1,.15,2.3,MT.yl),0,.08,0);P(g,BX(3,1.6,2.2,MT.st),0,.95,0);P(g,BX(2.1,.9,.05,MT.gl),0,1.2,1.12);P(g,BX(1.6,.9,1.6,MT.dk),0,2.2,0);
+  A.s=P(g,CY(.2,.8,MT.ch),0,1.2,0);P(g,CY(.05,.4,MT.yl),0,.7,0);P(g,new THREE.Mesh(new THREE.CylinderGeometry(.6,.25,.8,12),MT.st),1,2.9,0);
+  P(g,BX(.6,.5,.1,MT.dk),1.55,1.2,1.15);P(g,BX(.5,.35,.05,MT.gl),1.55,1.2,1.21);P(g,CY(.12,1.2,MT.ch),-1,2.6,0);
+ }else if(t==='storage'){
+  [-1,1].forEach(x=>[-.7,.7].forEach(z=>P(g,BX(.08,2.6,.08,MT.bl),x*1.4,1.3,z)));
+  [.35,1.15,1.95].forEach((y,i)=>{P(g,BX(2.9,.06,1.5,MT.st),0,y,0);[-.7,.5].forEach((x,k)=>P(g,BX(.7,.5,.6,MT.cb),x,y+.3,(i+k)%2?.2:-.2));});P(g,BX(3,.12,1.6,MT.yl),0,.06,0);
+ }else if(t==='inspection'){
+  P(g,BX(3,.4,1.2,MT.dk),0,.5,0);P(g,BX(2.8,.05,1,MT.rb),0,.72,0);[-1,1].forEach(x=>P(g,BX(.15,2,.15,MT.st),x*1.4,1.2,0));P(g,BX(3,.25,.3,MT.st),0,2.2,0);
+  [-.7,0,.7].forEach(x=>{P(g,BX(.4,.3,.4,MT.dk),x,1.9,0);P(g,CY(.1,.15,MT.gl),x,1.7,0);});A.beam=P(g,BX(2.6,.02,1.1,MT.rd),0,1,0);P(g,BX(.5,.6,.1,MT.dk),1.7,1.2,.6);P(g,BX(.4,.4,.04,MT.gl),1.7,1.2,.66);
+ }else if(t==='packaging'){
+  P(g,BX(2.4,1.7,2,MT.st),.3,.95,0);P(g,BX(2.5,.15,2.1,MT.yl),.3,1.85,0);P(g,BX(.9,.7,.05,MT.gl),.3,1.2,1.03);A.pk=P(g,BX(.2,1,.2,MT.yl),.3,1.5,0);
+  P(g,BX(1,.12,.9,MT.dk),-1.6,.6,0,0,0,-.3);[0,1].forEach(k=>P(g,BX(.5,.4,.5,MT.cb),-1.6-k*.2,.8+k*.1,0));P(g,BX(.35,.5,.1,MT.dk),1.6,1.2,.9);
+ }else if(/Cooling/.test(n)){
+  P(g,BX(2.6,1.3,1.8,MT.st),0,.65,0);A.fans=[];[-.6,.6].forEach(x=>{P(g,new THREE.Mesh(new THREE.TorusGeometry(.55,.03,6,20),MT.ch),x,1.35,0,HP);const f=new THREE.Group();P(f,BX(.95,.03,.14,MT.ch),0,0,0);P(f,BX(.14,.03,.95,MT.ch),0,0,0);P(f,CY(.08,.06,MT.dk),0,0,0);f.position.set(x,1.4,0);g.add(f);A.fans.push(f);});
+ }else if(/Power/.test(n)){
+  for(let k=0;k<4;k++){P(g,BX(.8,2.2,.7,MT.dk),-1.2+k*.8,1.1,0);P(g,BX(.7,1.9,.02,MT.st),-1.2+k*.8,1.1,.36);P(g,BX(.08,.08,.03,MT.gr),-1.2+k*.8,1.9,.38);}
+ }else if(/Vacuum/.test(n)){
+  [-.8,.8].forEach(x=>{P(g,CY(.5,1.8,MT.ch),x,1.1,0);const d=P(g,SPH(.5,MT.ch),x,2,0);d.scale.y=.5;P(g,CY(.06,.5,MT.st),x,.1,0);});P(g,CY(.06,1.6,MT.st),0,2.2,0,0,0,HP);
+ }else{
+  P(g,CY(.65,2.2,MT.bl),-.3,1.1,0,0,0,HP);[-1,.6].forEach(x=>{const d=P(g,SPH(.65,MT.bl),x-.1,1.1,0);d.scale.x=.4;});[-.9,.3].forEach(x=>P(g,BX(.15,.5,1,MT.dk),x,.25,0));P(g,BX(.9,.9,.9,MT.st),1.4,.55,0);P(g,CY(.14,.06,MT.ch),-.3,1.78,0,HP);P(g,CY(.06,1,MT.st),.4,1.8,.2,0,0,HP);
+ }}
+
+M.forEach(m=>{
+ const g=new THREE.Group();g.position.set(m.x,0,m.z);g.userData.i=m.i;
+ build(m,g);
+ const lamp=new THREE.Mesh(new THREE.SphereGeometry(.22,12,12),new THREE.MeshStandardMaterial({color:0x22c55e,emissive:0x22c55e,emissiveIntensity:1}));lamp.position.set(0,3.6,0);g.add(lamp);m.lamp=lamp;
+ const hl=new THREE.Mesh(new THREE.BoxGeometry(4,4.2,3),new THREE.MeshBasicMaterial({color:0x22d3ee,wireframe:true,transparent:true,opacity:.35}));hl.position.y=1.9;hl.visible=false;g.add(hl);m.hl=hl;
+ const el=document.createElement('div');el.className='lb';V.appendChild(el);m.el=el;
+ scene.add(g);m.g=g;g.traverse(o=>{if(o.isMesh)o.userData.i=m.i;targets.push(o);});
+});
+// cabling / utilities (static sensor nodes & pipes)
+[[-8,-3.5],[0,-3.5],[8,-3.5]].forEach(p=>{const c=new THREE.Mesh(new THREE.CylinderGeometry(.5,.5,2.2,12),mat(0x2f6f8f));c.position.set(p[0],1.1,p[1]);scene.add(c);});
+const cab=bx(2,2.4,.8,0x2a3448);cab.position.set(-18,1.2,-4);scene.add(cab);
+// products
+const prod=[];const pm=new THREE.MeshStandardMaterial({color:0x22d3ee,emissive:0x0a5566});
+for(let k=0;k<12;k++){const p=new THREE.Mesh(new THREE.BoxGeometry(.6,.5,.6),pm);p.userData.u=k/12;scene.add(p);prod.push(p);}
+const CAMDEF=[new THREE.Vector3(0,16,26),new THREE.Vector3(0,0,0)];let camGoal=null,tgtGoal=null;
+camr.position.copy(CAMDEF[0]);
+function cam(k){if(k==='reset'){camGoal=CAMDEF[0].clone();tgtGoal=new THREE.Vector3();}
+ else if(k==='top'){camGoal=new THREE.Vector3(0,34,.1);tgtGoal=new THREE.Vector3();}
+ else{const x=M[sel].x,z=M[sel].z;camGoal=new THREE.Vector3(x,7,z+10);tgtGoal=new THREE.Vector3(x,1,z);}}
+const ray=new THREE.Raycaster(),mv=new THREE.Vector2();
+ren.domElement.addEventListener('click',e=>{const r=ren.domElement.getBoundingClientRect();mv.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(mv,camr);const h=ray.intersectObjects(targets)[0];if(h&&h.object.userData.i!=null&&h.object.geometry.type!=='SphereGeometry'||h&&h.object.userData.i!=null)pick(h.object.userData.i);});
+function size(){if(!W())return;camr.aspect=W()/H();camr.updateProjectionMatrix();ren.setSize(W(),H());}new ResizeObserver(size).observe(V);size();
+
+let OUT=18420,page='o',nav=0;
+const NAV=[['Overview','o'],['Factory Floor','o'],['Production Flow','flow'],['Machines','all'],['Robotic Arms','robot'],['Conveyor Systems','conveyor'],['Processing Units','processing'],['Quality Inspection','inspection'],['Packaging','packaging'],['Utilities','utility'],['Sensors & IoT','sens'],['AI Analytics','ai'],['Predictive Maintenance','pm'],['Alerts','alerts'],['Maintenance Management','pm'],['Spare Parts & Inventory','parts'],['Upgrades & Recommendations','upg'],['Reports & Export','rep'],['Energy Monitoring','energy'],['Settings','set']];
+const SP=[['Temperature °C',2,30,90,'#ef4444'],['Vibration mm/s',0,0,9,'#22d3ee'],['Current A',3,1,8,'#f59e0b'],['RPM',4,1000,1500,'#a78bfa']];
+function extraInit(){$('sg').innerHTML=SP.map((p,k)=>`<div><div style="color:var(--m);font-size:9px">${p[0]} <b id="sv${k}" style="color:${p[4]}"></b></div><canvas id="sp${k}" width="150" height="56" style="width:100%;background:#0a1220;border-radius:4px"></canvas></div>`).join('');drawNav();}
+function drawNav(){$('nv').innerHTML='<div class="logo" style="padding:4px 8px 10px">AUTO INTEL</div>'+NAV.map((n,i)=>`<a class="${i===nav?'on':''}" onclick="go(${i})">${n[0]}</a>`).join('');}
+function go(i){nav=i;page=NAV[i][1];drawNav();document.querySelector('main').style.display=page==='o'?'':'none';$('pg').style.display=page==='o'?'none':'block';if(page!=='o')$('pg').innerHTML=view();else size();}
+const tb=(h,r)=>`<table><tr>${h.map(x=>`<td style="color:var(--m)">${x}</td>`).join('')}</tr>${r.map(x=>`<tr>${x.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</table>`;
+const lk=m=>`<a style="cursor:pointer;color:var(--c)" onclick="go(0);pick(${m.i})">${m.name}</a>`;
+const bar=(v,c)=>`<div class="bar" style="width:120px;display:inline-block"><i style="width:${clamp(v,0,100)}%;background:${c}"></i></div>`;
+function view(){
+ const H=x=>`<h3>${x}</h3>`,f=window.FLOW||1;
+ if(['all','robot','conveyor','processing','inspection','packaging','utility'].includes(page))return H(NAV[nav][0]+' — machine health')+tb(['Machine','Health %','Temp °C','Vib mm/s','Current A','RPM','AI risk','Status'],M.filter(m=>page==='all'||m.type===page).map(m=>[lk(m),m.pred.health,m.tel.t.toFixed(1),m.tel.v.toFixed(2),m.tel.c.toFixed(2),Math.round(m.tel.r),pc(m.pred.fp),tag(m.status)]));
+ if(page==='flow')return H('Production flow — how machine health affects throughput')+tb(['Stage','Status','Throughput u/hr','Cycle s','Health','Delay','AI cause'],M.slice(0,8).map(m=>{const q=clamp(m.pred.health/80,.35,1);return [lk(m),m.status==='c'?'<span style="color:var(--r)">DELAYED</span>':m.status==='w'?'<span style="color:var(--w)">DEGRADED</span>':'<span style="color:var(--g)">RUNNING</span>',Math.round(1240*q),(42/q).toFixed(1),m.pred.health+'%','+'+Math.round((1-q)*100)+'%',m.pred.rul==null?'—':m.pred.ftype+' ('+pc(m.pred.fp)+')']}));
+ if(page==='sens')return H('Virtual sensors (software-simulated IoT telemetry)')+tb(['Sensor ID','Machine','Type','Value','Normal range','Status','AI relevance'],M.flatMap(m=>[['TEMP',m.tel.t.toFixed(1)+' °C','40–50',.31],['VIB',m.tel.v.toFixed(2)+' mm/s','1–2',.35],['CUR',m.tel.c.toFixed(2)+' A','2–3',.22],['RPM',Math.round(m.tel.r),'1400–1500',.12]].map(k=>[k[0]+'-'+String(m.i+1).padStart(2,'0'),lk(m),k[0],k[1],k[2],tag(m.status),Math.round(k[3]*100)+'%'])));
+ if(page==='ai')return H('AI model performance (simulated evaluation on synthetic telemetry)')+tb(['Model','Accuracy','Precision','Recall','F1 / MAE·RMSE'],[['Anomaly detection','96.4%','94.1%','95.3%','94.7%'],['Failure prediction','93.8%','91.2%','92.6%','91.9%'],['RUL regression','—','—','—','MAE 2.7 h · RMSE 3.9 h']])+H('Feature importance')+[['Vibration',31],['Temperature',24],['Motor current',21],['RPM',16],['Load',8]].map(x=>`<div class="row"><span>${x[0]}</span>${bar(x[1]*3,'var(--a)')}<b>${x[1]}%</b></div>`).join('')+H('Confusion matrix (anomaly)')+tb(['','Pred normal','Pred anomaly'],[['Actual normal',1842,37],['Actual anomaly',52,469]]);
+ if(page==='pm')return H('AI predicted maintenance')+tb(['Machine','Issue','AI confidence','Priority','Recommended action','Due','Status'],M.filter(m=>m.pred.fp>.15||m.status!=='h').map(m=>[lk(m),m.pred.ftype,pc(m.pred.fp),m.status==='c'?'HIGH':'MED',m.pred.rec,m.status==='c'?'Today':'This week','Pending']).concat([['Quality Inspection','Sensor calibration','—','LOW','Calibrate sensors','12 Oct','Scheduled'],['Processing Machine','Filter replacement','—','LOW','Replace filter','18 Oct','Scheduled']]));
+ if(page==='alerts')return H('Alert center')+tb(['Time','Machine','Severity','Message / notification','Action'],alerts.map(a=>[a.t,a.m,tag(a.sev),a.txt+(a.note?'<br><span style="color:var(--a)">'+a.note+'</span>':''),`<button onclick="ack(${a.id});go(nav)">${a.ack?'Acknowledged':'Acknowledge'}</button> <button onclick="go(0);pick(${a.i})">View machine</button>`]));
+ if(page==='parts')return H('Spare parts & inventory')+tb(['Part','Stock','Minimum','Status'],Object.entries(STOCK).map(([k,[a,b]])=>[k,a,b,a<b/2?tag('c').replace('CRITICAL','CRITICAL'):a<b?tag('w').replace('WARNING','LOW STOCK'):tag('h').replace('HEALTHY','AVAILABLE')]));
+ if(page==='upg')return H('AI upgrade recommendations')+tb(['Machine','Recommendation','Expected gain','Downtime','Simulated ROI'],[['Conveyor 03','High-efficiency motor','12–15% efficiency','2 h','8 months'],['Robot Arm 02','Predictive vibration sensor','Early fault detection','1 h','6 months'],['Processing Machine','Cooling upgrade','8% energy saving','3 h','11 months'],['Conveyor 01','Belt replacement','5% throughput','1.5 h','9 months']]);
+ if(page==='energy'){const tot=M.reduce((a,m)=>a+m.tel.pw,0);return H('Energy monitoring — total '+tot.toFixed(1)+' kW')+tb(['Machine','Power kW','Share','Efficiency','AI recommendation'],M.slice().sort((a,b)=>b.tel.pw-a.tel.pw).map(m=>[lk(m),m.tel.pw.toFixed(1),bar(m.tel.pw/tot*400,'var(--c)'),Math.round(96-40*m.pred.n.s)+'%',m.status==='h'?'Optimize duty cycle (~8% saving)':'Fix fault: wasted energy']));}
+ if(page==='rep')return H('Reports & export — machine health report (CSV)')+`<textarea readonly onclick="this.select()" style="width:100%;height:300px;background:#0a1220;color:var(--t);border:1px solid var(--b)">${['machine,health,temp,vib,current,rpm,risk,status'].concat(M.map(m=>[m.name,m.pred.health,m.tel.t.toFixed(1),m.tel.v.toFixed(2),m.tel.c.toFixed(2),Math.round(m.tel.r),pc(m.pred.fp),m.status].join(','))).join('\n')}</textarea><p style="color:var(--m)">Click to select, then copy. File download needs the backend export endpoint.</p>`;
+ return H('Settings')+tb(['Key','Value'],[['VITE_ENABLE_SIMULATION','true'],['VITE_TELEGRAM_ENABLED','false (mock mode)'],['AI engine','deterministic (swap for FastAPI/XGBoost)'],['Repositories','mock']]);
+}
+function extra(){
+ $('hm').textContent=M.length;
+ const avg=Math.round(M.reduce((a,m)=>a+m.pred.health,0)/M.length),f=window.FLOW||1,eff=Math.round(78*f),cnt=s=>M.filter(m=>m.status===s).length;
+ OUT+=1240*f*.5/3600*speed*30;
+ const an=M.filter(m=>m.pred.anom>.45).length,pf=M.filter(m=>m.pred.rul!=null).length,col=avg>80?COL.h:avg>60?COL.w:COL.c;
+ $('kp').innerHTML=`<div class="kc" onclick="go(3)"><div style="width:58px;height:58px;border-radius:50%;background:conic-gradient(${col} ${avg}%,#16233a 0);display:grid;place-items:center"><div style="width:44px;height:44px;border-radius:50%;background:#0a1220;display:grid;place-items:center;font:700 13px system-ui">${avg}%</div></div><div><small>Overall equipment health</small><span style="color:var(--g)">${cnt('h')} healthy</span> <span style="color:var(--w)">${cnt('w')} warn</span> <span style="color:var(--r)">${cnt('c')} crit</span></div></div>
+ <div class="kc" onclick="go(13)"><div><small>Production efficiency</small><b>${eff}%</b><small>Target 80%</small></div></div><div class="kc" onclick="go(2)"><div><small>Total output today</small><b>${Math.round(OUT).toLocaleString()}</b><small>Target 20,000</small></div></div>
+ <div class="kc" onclick="go(13)"><div><small>Active anomalies</small><b style="color:var(--w)">${an}</b><small>${cnt('c')} critical · ${cnt('w')} warning</small></div></div><div class="kc" onclick="go(12)"><div><small>Predicted failures</small><b style="color:var(--a)">${pf}</b><small>next 7 days</small></div></div>`;
+ $('fl').innerHTML=M.slice(0,8).map((m,i)=>{const c=COL[m.status],t=m.type==='storage'?'Completed':m.status==='c'?'Delayed':m.status==='w'?'Degraded':'Running';return `<div class="st" onclick="pick(${m.i})"><i style="background:${c};box-shadow:0 0 8px ${c}"></i>${m.name}<br><span style="color:${c}">${t}</span></div>${i<7?`<span style="color:${m.status==='c'?COL.c:COL.h}">→</span>`:''}`}).join('')+`<div class="st"><i style="background:var(--c)"></i>Finished Product<br><span style="color:var(--c)">${Math.round(1240*f).toLocaleString()} u/hr</span></div>`;
+ const h=M[sel].hist;$('sn').textContent=M[sel].name;
+ SP.forEach((p,k)=>{const c=$('sp'+k);if(!c||h.length<2)return;const g=c.getContext('2d');g.clearRect(0,0,150,56);g.beginPath();g.strokeStyle=p[4];g.lineWidth=1.5;h.forEach((q,i)=>{const y=54-(clamp(q[p[1]],p[2],p[3])-p[2])/(p[3]-p[2])*50,x=i/69*150;i?g.lineTo(x,y):g.moveTo(x,y)});g.stroke();$('sv'+k).textContent=(+h[h.length-1][p[1]]).toFixed(k===4?0:1);});
+ if(page!=='o'&&page!=='rep')$('pg').innerHTML=view();
+}
+function refresh(){refresh0();extra();}
+function listHTML(){const S=M.slice().sort((a,b)=>a.pred.health-b.pred.health),bad=S.filter(m=>m.status==='c'||m.status==='w')[0];
+ return `<h3>Machine health</h3>`+S.map(m=>`<div class="mh" onclick="pick(${m.i})"><span>${m.name}</span><div class="bar" style="margin:0"><i style="width:${m.pred.health}%;background:${COL[m.status]}"></i></div><b style="color:${COL[m.status]}">${m.pred.health}%</b></div>`).join('')+(bad?`<div class="box" style="border-color:${COL[bad.status]};margin-top:10px;cursor:pointer" onclick="pick(${bad.i})"><b style="color:${COL[bad.status]}">${bad.status==='c'?'CRITICAL':'WARNING'} · ${bad.name}</b><br>${bad.pred.ftype} · risk ${pc(bad.pred.fp)}<br><span style="color:var(--m)">Click for details →</span></div>`:'<div class="box">All machines nominal.</div>')+`<div style="color:var(--m);margin-top:8px;font-size:10px">Click a machine (list or 3D) for details. Use the sidebar for other views.</div>`;}
+function tg(){const p=$('simp');p.style.display=p.style.display==='block'?'none':'block';}
+const sp0=$('simp');sp0.style.cssText='position:absolute;right:8px;top:8px;width:230px;display:none;z-index:5';$('v').appendChild(sp0);
+
+const clk=new THREE.Clock(),v3=new THREE.Vector3();let tt=0;
+function loop(){requestAnimationFrame(loop);const dt=Math.min(clk.getDelta(),.1);tt+=dt;
+ step(dt*.5*2/1);// ~ one sim step scale
+ if(camGoal){camr.position.lerp(camGoal,.08);ctl.target.lerp(tgtGoal,.08);if(camr.position.distanceTo(camGoal)<.05)camGoal=null;}
+ ctl.update();
+ const f=window.FLOW||1;
+ prod.forEach(p=>{p.userData.u=(p.userData.u+dt*.04*speed*f)%1;const x=-14+p.userData.u*28;p.position.set(x,1.1,0);p.visible=!(Math.abs(x+6)<.6||Math.abs(x-6)<.6)||true;});
+ M.forEach(m=>{
+  const c=new THREE.Color(COL[m.status]);const pulse=m.status==='c'?.6+.4*Math.sin(tt*8):1;m.lamp.material.color.copy(c);m.lamp.material.emissive.copy(c);m.lamp.material.emissiveIntensity=pulse;
+  m.hl.visible=m.i===sel;const a=anim[m.i],sp=(1-m.sev*.6)*speed;
+  if(a&&a.j){a.j.rotation.y=Math.sin(tt*sp*1.2+m.i)*1.0;a.j2.rotation.z=Math.sin(tt*sp*1.6)*.5-.3;}
+  if(a.s)a.s.rotation.y+=dt*8*sp;if(a.ro)a.ro.forEach(r=>r.rotation.z-=dt*5*sp);if(a.fans)a.fans.forEach(f=>f.rotation.y+=dt*10*sp);if(a.j1)a.j1.rotation.z=Math.sin(tt*sp*.9)*.25;if(a.beam)a.beam.position.y=1+.5*Math.sin(tt*2*sp);if(a.pk)a.pk.position.y=1.5+.4*Math.sin(tt*3*sp);
+  m.g.getWorldPosition(v3);v3.y=4.2;v3.project(camr);m.el.style.left=(v3.x*.5+.5)*W()+'px';m.el.style.top=(-v3.y*.5+.5)*H()+'px';
+  m.el.innerHTML=`<span style="color:${COL[m.status]}">●</span> ${m.name} ${m.pred.health}%`;m.el.style.borderColor=m.i===sel?'#22d3ee':'';
+ });
+ if(W())ren.render(scene,camr);}
+extraInit();step(.5);M.forEach(m=>{m.prevS=m.status;});refresh();loop();setInterval(refresh,500);
+</script></body></html>
